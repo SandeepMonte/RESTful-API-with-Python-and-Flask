@@ -91,7 +91,7 @@ def update_task(task_id):
     task[0]['title'] = request.json.get('title', task[0]['title'])
     task[0]['description'] = request.json.get('description', task[0]['description'])
     task[0]['done'] = request.json.get('done', task[0]['done'])
-    return jsonify( { 'task': make_public_task(task) } )
+    return jsonify( { 'task': make_public_task(task[0]) } )
     
 @app.route('/todo/api/v1.0/tasks/<int:task_id>', methods = ['DELETE'])
 @auth.login_required
